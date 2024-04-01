@@ -1,0 +1,60 @@
+ {% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <!-- Start Register -->
+    <section class="ec-page-content section-space-p">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+                        {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" role="alert">
+                          {{ message }}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success" role="alert">
+                          {{ message }}
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                        <h2 class="ec-bg-title">Register</h2>
+                        <h2 class="ec-title">Register</h2>
+                        <p class="sub-title mb-3">Best place to buy and sell digital products</p>
+                    </div>
+                </div>
+                <div class="ec-register-wrapper">
+                    <div class="ec-register-container">
+                        <div class="ec-register-form">
+                            <form action="" method="post">{% csrf_token %}
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>First Name*</label>
+                                    <input type="text" name="firstname" placeholder="Enter your first name" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Last Name*</label>
+                                    <input type="text" name="lastname" placeholder="Enter your last name" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Username*</label>
+                                    <input type="text" name="username" placeholder="Enter your username add..." required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Password*</label>
+                                    <input type="password" name="password" placeholder="Enter your password"
+                                        required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-btn">
+                                    <button class="btn btn-primary" type="submit">Register</button>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Register -->
+{% endblock %}
